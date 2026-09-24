@@ -12,7 +12,7 @@
       font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', cursive, sans-serif;
     }
     body {
-      background-color: #fcf8e3; /* نفس لون الخلفية البيج الناعم */
+      background-color: #fcf8e3;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -24,7 +24,6 @@
       max-width: 500px;
       text-align: center;
     }
-    /* الواجهة الأولى */
     .title {
       font-size: 26px;
       color: #333;
@@ -38,7 +37,7 @@
       font-weight: bold;
     }
     .cute-gif {
-      width: 180px;
+      width: 160px;
       height: auto;
       margin-bottom: 30px;
     }
@@ -61,7 +60,7 @@
       transition: transform 0.2s;
     }
     .btn-yes {
-      background-color: #ffb3c1; /* نفس اللون الوردي للزر */
+      background-color: #ffb3c1;
     }
     .btn-yes:hover {
       transform: scale(1.1);
@@ -71,8 +70,6 @@
       background-color: #ffb3c1;
       position: absolute;
     }
-
-    /* كادر الرسالة الكيوت */
     .message-card {
       display: none;
       background: #ffffff;
@@ -101,11 +98,75 @@
       left: 20px;
       font-size: 30px;
     }
-
     @keyframes popup {
       0% { opacity: 0; transform: scale(0.8); }
       100% { opacity: 1; transform: scale(1); }
     }
+  </style>
+</head>
+<body>
+
+  <!-- مشغل الأغنية -->
+  <audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <div id="quiz-box">
+      <div class="title">😍🤏hi my bestie siham</div>
+      <div class="subtitle">كتبغيني🫶🥹🤭!</div>
+      
+      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Smiling%20Face%20with%20Hearts.png" class="cute-gif" alt="Cute character">
+      
+      <div class="btn-container">
+        <button class="btn btn-yes" onclick="showLoveLetter()">Yes</button>
+        <button class="btn btn-no" id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">No</button>
+      </div>
+    </div>
+
+    <div id="message-card" class="message-card">
+إلى أرق وأغلى إنسانة في هذا الوجود 👑💖
+هل تعلمين في كثير من الأحيان أرجع بذاكرتي إلى ذلك اليوم الأول الذي رأيتك فيه من الأعلى 🕊️ ذلك اليوم الذي ظننت فيه أنني مجرد شخص يلمح فتاة جميلة 🌸 ولم أكن أعلم أنني في تلك اللحظة كنت أنظر إلى مستقبلي وإلى الشخص الذي سيقلب حياتي رأسا على عقب ✨
+
+طوال حياتي كنت أشعر بتنافر غريب مع هذا العالم وكأنني في كفة والناس جميعا في كفة أخرى إلى أن تقاطعت طرقنا 💫 في تلك اللحظة بالذات ولأول مرة في حياتي شعرت بجاذبية عجيبة 🧲 وبسكينة وراحة نادرة أثبتت لي أنك لست مجرد عابرة في حياتي بل أنت الجزء الذي كان ناقصا في روحي 🧩
+
+معك أنت فقط تعلمت كيف يستمتع الإنسان حتى في لحظات الخسارة ♟️ حين كنا نلعب الشطرنج وتغلبينني كانت الابتسامة ترتسم في قلبي قبل وجهي 🥹 لأن الخسارة أمامك هي أعظم فوز لي ولأن الرابح الحقيقي هو أنا الذي حظيت بفرصة الدخول إلى عالمك 🗝️
+
+أنت لست جميلة فحسب أنت ملاك حقيقي في صورة إنسانة 👼🏼 بتلك الطيبة التي تغمر قلبك 🤍 وبذلك الخجل العذب الذي يحمر له وجنتاك 🙈 وتلك العينين الواسعتين الهادئتين كعيون الغزال 🦌 اللتين أسرح فيهما وأنسى معهما الوجود أنت النقاء الذي كنت أبحث عنه في هذا العالم 💎
+
+أريدك أن تعلمي أن كل موقف صمدت فيه لأجلك 🛡️ وكل كلمة قيلت بيننا وكل ضحكة تشاركناها قد حفرت في قلبي إلى الأبد أنت لست خيارا في حياتي بل أنت الأولوية الأولى والأخيرة 🥇 وأنت الإنسانة التي أنا مستعد لأجلها أن أقف بوجه العالم وأحميك من أدنى حزن أو كذب قد يمس قلبك 🤲🏻
+
+وحين شاركتني رؤيتك المليئة بالثقة والأمل أدركت أن لحياتي معنى حقيقيا بوجودك 🌈 أعدك أن أكون لك السند والأمان وأن أبني لك المستقبل الجميل الذي تستحقينه 🏛️ وسأظل أفعل كل ما في وسعي لتبقى تلك الابتسامة المشرقة مرسومة على وجهك 😊
+
+شكرا لأنك في حياتي وشكرا لأنك أخذت بيدي وعلمتني كيف أحب بصدق 🫂 أحبك جدا أكثر بكثير مما تستطيع أية كلمات أن تصف ❤️✨
+    </div>
+  </div>
+
+  <script>
+    function moveNoButton() {
+      const btn = document.getElementById('noBtn');
+      const container = document.querySelector('.container');
+      const containerRect = container.getBoundingClientRect();
+      const btnRect = btn.getBoundingClientRect();
+
+      const newX = (Math.random() - 0.5) * (containerRect.width - btnRect.width);
+      const newY = (Math.random() - 0.5) * 200;
+
+      btn.style.transform = `translate(${newX}px, ${newY}px)`;
+    }
+
+    function showLoveLetter() {
+      document.getElementById('quiz-box').style.display = 'none';
+      document.getElementById('message-card').style.display = 'block';
+      
+      // تشغيل الموسيقى
+      const music = document.getElementById('bgMusic');
+      music.play();
+    }
+  </script>
+
+</body>
+</html>
   </style>
 </head>
 <body>
